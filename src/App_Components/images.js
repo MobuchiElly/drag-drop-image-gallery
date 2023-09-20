@@ -1,0 +1,103 @@
+const images = [
+    {
+      id: 1,
+      url: process.env.PUBLIC_URL + '/city-1.jpeg',
+      tag: 'City View',
+      isDragged: false,
+      title: 'City 1 Image',
+    },
+    {
+      id: 2,
+      url: process.env.PUBLIC_URL + '/city-2.jpeg',
+      tag: 'City View',
+      isDragged: false,
+      title: 'City 2 Image',
+    },
+    {
+      id: 3,
+      url: process.env.PUBLIC_URL + '/city-3.jpeg',
+      tag: 'City View',
+      isDragged: false,
+      title: 'City 3 Image',
+    },
+    {
+      id: 4,
+      url: process.env.PUBLIC_URL + '/city-4.jpeg',
+      tag: 'City View',
+      isDragged: false,
+      title: 'City 4 Image',
+    },
+    {
+      id: 5,
+      url: process.env.PUBLIC_URL + '/city-5.jpeg',
+      tag: 'City View',
+      isDragged: false,
+      title: 'City 5 Image',
+    },
+    {
+      id: 6,
+      url: process.env.PUBLIC_URL + '/item-1.jpeg',
+      tag: 'Food and Snacks',
+      isDragged: false,
+      title: 'Food 1 Image',
+    },
+    {
+      id: 7,
+      url: process.env.PUBLIC_URL + '/item-2.jpeg',
+      tag: 'Food and Snacks',
+      isDragged: false,
+      title: 'Food 2 Image',
+    },
+    {
+      id: 8,
+      url: process.env.PUBLIC_URL + '/item-3.jpeg',
+      tag: 'Food and Snacks',
+      isDragged: false,
+      title: 'Food 3 Image',
+    },
+    {
+      id: 9,
+      url: process.env.PUBLIC_URL + '/item-4.jpeg',
+      tag: 'Food and Snacks',
+      isDragged: false,
+      title: 'Food 4 Image',
+    },
+    {
+      id: 10,
+      url: process.env.PUBLIC_URL + '/item-5.jpeg',
+      tag: 'Food and Snacks',
+      isDragged: false,
+      title: 'Food 5 Image',
+    },
+    {
+      id: 11,
+      url: process.env.PUBLIC_URL + '/item-6.jpeg',
+      tag: 'Food and Snacks',
+      isDragged: false,
+      title: 'Food 6 Image',
+    },
+    {
+      id: 16,
+      url: process.env.PUBLIC_URL + '/nature-1.jpeg',
+      tag: 'Nature and the Environment',
+      isDragged: false,
+      title: 'Nature 1 Image',
+    },
+    {
+      id: 17,
+      url: process.env.PUBLIC_URL + '/nature-2.jpeg',
+      tag: 'Nature and the Environment',
+      isDragged: false,
+      title: 'Nature 2 Image',
+    },
+    {
+      id: 18,
+      url: process.env.PUBLIC_URL + '/nature-3.jpeg',
+      tag: 'Nature and the Environment',
+      isDragged: false,
+      title: 'Nature 3 Image',
+    },
+  ];
+  
+  export default images;
+  
