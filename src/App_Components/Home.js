@@ -90,7 +90,7 @@ function Home({ loggedIn }) {
                           {...provided.dragHandleProps}
                         >
                           <img
-                            className="image img-fluid custom-image-card"
+                            className="image img-fluid custom-image-card image-animation"
                             src={imgs.url}
                             alt="ReplaceMe"
                             data-testid="image"

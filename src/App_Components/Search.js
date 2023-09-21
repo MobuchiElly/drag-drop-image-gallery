@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { auth } from "./firebase";
 import { RingLoader } from "react-spinners";
 import images from "./images";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 function Search({ query, setQuery }) {
   const [searchResults, setSearchResults] = useState([]);
@@ -13,17 +14,17 @@ function Search({ query, setQuery }) {
       try {
         setLoading(true);
         setError(null);
-    
+
         if (!query) {
           setSearchResults([]);
           setLoading(false);
           return;
         }
-    
+
         const filteredImages = images.filter((image) => {
           return image.tag.toLowerCase().includes(query.toLowerCase());
         });
-    
+
         setSearchResults(filteredImages);
         setLoading(false);
       } catch (err) {
@@ -32,7 +33,6 @@ function Search({ query, setQuery }) {
         setLoading(false);
       }
     };
-    
 
     searchImages();
   }, [query]); // Listen to changes in the query prop
@@ -50,7 +50,17 @@ function Search({ query, setQuery }) {
     }
   };
 
-  console.log("Error:", error); // Add this line for debugging
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const updatedResults = [...searchResults];
+    const [reorderedItem] = updatedResults.splice(result.source.index, 1);
+    updatedResults.splice(result.destination.index, 0, reorderedItem);
+
+    setSearchResults(updatedResults);
+  };
 
   return (
     <div>
@@ -64,12 +74,15 @@ function Search({ query, setQuery }) {
       </div>
       <div className="input-ntext">
         <h3>Search by Category e.g food, housing, nature </h3>
-          <input
-            type="text"
-            placeholder="Search by category ..."
-            value={query}
-            onChange={handleInputChange} className="form-control" id="searchInput" name="searchInput"
-          />
+        <input
+          type="text"
+          placeholder="Search by category ..."
+          value={query}
+          onChange={handleInputChange}
+          className="form-control"
+          id="searchInput"
+          name="searchInput"
+        />
       </div>
       {loading && (
         <div className="loading-spinner loadingSpinner">
@@ -77,23 +90,52 @@ function Search({ query, setQuery }) {
         </div>
       )}
       {error && <p>{error}</p>}
-      <div className="search-results row">
-      {searchResults.map((imgs, index) => (
-          <div className="col-lg-3 col-md-4 col-sm-6 mb-1" key={index}>
-            <div className="card">
-              <img
-                src={imgs.url}
-                alt={imgs.title}
-                className="card-img-top search-image"
-                data-testid="imgs-poster"
-              />
-              <div className="card-body">
-                {/* Add any additional content or information here */}
-              </div>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="search-results" direction="vertical">
+          {(provided) => (
+            <div
+              className="search-results row custom-image-card"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+              }}
+            >
+              {searchResults.map((imgs, index) => (
+                <Draggable
+                  key={imgs.id.toString()}
+                  draggableId={`search-image-${imgs.id}`}
+                  index={index}
+                >
+                  {(provided) => (
+                    <div
+                      className="col-lg-3 col-md-4 col-sm-6 mb-1 custom-image-card"
+                      key={index}
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <div className="card">
+                        <img
+                          src={imgs.url}
+                          alt={imgs.title}
+                          className="card-img-top search-image image-animation custom-image-card"
+                          data-testid="imgs-poster"
+                        />
+                        <div className="footer custom-image-card">
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
             </div>
-          </div>
-        ))}
-      </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
   );
 }
