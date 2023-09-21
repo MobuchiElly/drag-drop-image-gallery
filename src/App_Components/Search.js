@@ -68,7 +68,7 @@ function Search({ query, setQuery }) {
         <div className="header">
           <h1>Image Gallery</h1>
         </div>
-        <button onClick={handleLogout} className="btn btn-danger">
+        <button onClick={handleLogout} className="btn btn-danger logout-btn">
           Logout
         </button>
       </div>

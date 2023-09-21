@@ -34,6 +34,7 @@ code {
   color: #9cc4d7;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-shadow: 2px 2px 4px rgba(211, 18, 18, 0.3);
+  text-align: center !important;
 }
 
 .input-ntext input{
@@ -43,6 +44,12 @@ code {
 .input-ntext input::hover {
   color:black;
   background-color: #fff;
+}
+
+@media (max-width: 450px) {
+  .top-card .logout-btn {
+    background-color: transparent; /* Transparent background for small screens */
+  }
 }
 
 .header h1{
