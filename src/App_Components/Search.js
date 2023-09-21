@@ -77,10 +77,20 @@ function Search({ query, setQuery }) {
         </div>
       )}
       {error && <p>{error}</p>}
-      <div className="search-results">
-        {searchResults.map((imgs, index) => (
-          <div className="imgs-card" key={index}>
-            <img src={imgs.url} alt={imgs.title} data-testid="imgs-poster" />
+      <div className="search-results row">
+      {searchResults.map((imgs, index) => (
+          <div className="col-lg-3 col-md-4 col-sm-6 mb-1" key={index}>
+            <div className="card">
+              <img
+                src={imgs.url}
+                alt={imgs.title}
+                className="card-img-top search-image"
+                data-testid="imgs-poster"
+              />
+              <div className="card-body">
+                {/* Add any additional content or information here */}
+              </div>
+            </div>
           </div>
         ))}
       </div>

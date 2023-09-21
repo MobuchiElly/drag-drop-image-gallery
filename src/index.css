@@ -26,6 +26,7 @@ code {
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0px;
 }
 
 .input-ntext h3{
@@ -119,5 +120,34 @@ code {
 
 
 
+.search-image {
+  width: 100%;
+  height: 200px;
+}
+
+.search-results .search-image{
+  padding: 0;
+  margin: 0;
+  background-color: red;
+}
+
 
 /* Drag and Drop CSS */
+.custom-image-card {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.custom-image-card :hover {
+  background-color: transparent !important;
+  border: none !important;
+}
+.custom-image-card :focus {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.custom-image-card :focus-visible {
+  background-color: transparent !important;
+  border: none !important;
+}

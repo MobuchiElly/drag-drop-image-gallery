@@ -50,7 +50,7 @@ function Home({ loggedIn }) {
   };
 
   return (
-    <div className="container">
+    <div className="container ">
       {loading ? (
         <div className="loading-spinner loadingSpinner">
         <RingLoader color={"#123abc"} loading={loading} size={150} />
@@ -58,12 +58,12 @@ function Home({ loggedIn }) {
       ) : error ? (
         <div className="error-message">{error}</div>
       ) : (
-        <div className="card">
+        <div className="card custom-image-card">
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="image-gallery" direction="vertical">
               {(provided) => (
                 <div
-                  className="row"
+                  className="row custom-image-card"
                   {...provided.droppableProps}
                   ref={provided.innerRef}
                   style={{
@@ -80,7 +80,7 @@ function Home({ loggedIn }) {
                       {(provided) => (
                         <div
                           data-testid="image-card"
-                          className="image-card col-md-4"
+                          className="image-card col-md-4 custom-image-card"
                           style={{
                             borderRadius: "3px",
                             padding: "0px",
@@ -90,7 +90,7 @@ function Home({ loggedIn }) {
                           {...provided.dragHandleProps}
                         >
                           <img
-                            className="image img-fluid"
+                            className="image img-fluid custom-image-card"
                             src={imgs.url}
                             alt="ReplaceMe"
                             data-testid="image"
