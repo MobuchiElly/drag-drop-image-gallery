@@ -57,21 +57,22 @@ function Search({ query, setQuery }) {
       <div className="top-card">
         <div className="header">
           <h1>Image Gallery</h1>
-          <p>Drag and Drop Images at will</p>
         </div>
         <button onClick={handleLogout} className="btn btn-danger">
           Logout
         </button>
       </div>
-      <h1>Search by Category e.g food, housing, nature </h1>
-      <input
-        type="text"
-        placeholder="Search by category ..."
-        value={query}
-        onChange={handleInputChange}
-      />
+      <div className="input-ntext">
+        <h3>Search by Category e.g food, housing, nature </h3>
+          <input
+            type="text"
+            placeholder="Search by category ..."
+            value={query}
+            onChange={handleInputChange} className="form-control" id="searchInput" name="searchInput"
+          />
+      </div>
       {loading && (
-        <div className="loading-spinner">
+        <div className="loading-spinner loadingSpinner">
           <RingLoader color={"#123abc"} loading={loading} size={150} />
         </div>
       )}

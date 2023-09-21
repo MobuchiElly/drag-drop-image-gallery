@@ -3,6 +3,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import images from "./images";
 import "../index.css";
 import Skeleton from "react-loading-skeleton";
+import { RingLoader } from "react-spinners";
 
 function Home({ loggedIn }) {
   const [galleryImage, setGalleryImage] = useState([]);
@@ -25,7 +26,7 @@ function Home({ loggedIn }) {
             setError("Error fetching the image object");
             setLoading(false);
           }
-        }, 1000);
+        }, 100);
       } catch (error) {
         console.error("Error fetching images:", error);
         setError("An error occurred while fetching images");
@@ -51,19 +52,9 @@ function Home({ loggedIn }) {
   return (
     <div className="container">
       {loading ? (
-        Array.from({ length: 10 }).map((_, index) => (
-          <div
-            data-testid="image-card"
-            className="image-card col-md-4"
-            key={index}
-          >
-            <Skeleton width={200} height={200} />
-            <div data-testid="image-details" className="image-details">
-              <Skeleton width={100} height={20} />
-              <Skeleton width={150} height={20} />
-            </div>
-          </div>
-        ))
+        <div className="loading-spinner loadingSpinner">
+        <RingLoader color={"#123abc"} loading={loading} size={150} />
+      </div>
       ) : error ? (
         <div className="error-message">{error}</div>
       ) : (
