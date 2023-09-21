@@ -1,4 +1,5 @@
-Project Created By Eleazer Mobuchi Ugwu
+#Project Created By Eleazer Mobuchi Ugwu
+Software Developer Intern
 
 # Drag and Drop Image Gallery
 
@@ -8,17 +9,17 @@ The Drag and Drop Image Gallery is a web application that allows users to create
 - [Components](#components)
 - [How It Works](#how-it-works)
 - [Getting Started](#getting-started)
-- [Local Development](#local-development)
-- [Deployment](#deployment)
-- [License](#license)
 
 ## Components
 
-The application consists of the following components:
+My application consists of the following components:
 
 - **Home**: The Home component displays the user's image gallery, which they can reorder by dragging and dropping images.
 
 - **Search**: The Search component allows users to search for images by category and view the search results. Images in the search results can also be dragged and dropped.
+
+-**Login**: The Login component allows users to Login or Signup on the platform
+
 
 ## How It Works
 
@@ -33,8 +34,14 @@ The application consists of the following components:
   - Enter a search query to find images by category (e.g., food, housing, nature).
   - Search results are displayed as cards, and you can drag and drop these cards to rearrange them.
   - Images in the search results are filtered based on their tags.
+
+  **Login**:
+  -Upon opening visiting the site you can choose to signup as a new user or Login as an existing user. 
   
 ## Getting Started
 
-To get started with this project, follow these steps:
-Go to 
+To run the application:
+Go to https://image-gallery-three-azure.vercel.app/
+
+
+Source Code to this project can be found at https://github.com/MobuchiElly/drag-drop-image-gallery. Feel free to star the project repository.
