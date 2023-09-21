@@ -71,27 +71,29 @@ function Home() {
               Logout
             </button>
           </div>
-          <div className="row">
-            {galleryImage.map((imgs) => (
-              <div
-                data-testid="image-card"
-                className="image-card col-md-4 mb-4 d-flex flex-wrap" // Bootstrap column class for a 3-column layout, and add margin-bottom for spacing
-                key={imgs.id}
-                style={{ borderRadius: '3px', padding: '0px', backgroundColor:'cyan'}} // Add border radius and padding
-              >
-                <img
-                  className="image img-fluid" // img-fluid makes the image responsive
-                  src={imgs.url}
-                  alt="ReplaceMe"
-                  data-testid="image"
-                  style={{width:'100%', height:'100%'}}
-                />
-                {/* <div data-testid="image-details" className="image-details">
-                  <div data-testid="image-tag" className="image-tag">{imgs.tag}</div>
-                  <div data-testid="image-title" className="image-title">{imgs.title}</div>
-                </div> */}
-              </div>
-            ))}
+          <div className='row-body'>
+            <div className="row">
+              {galleryImage.map((imgs) => (
+                <div
+                  data-testid="image-card"
+                  className="image-card col-md-4 d-flex flex-wrap" // Bootstrap column class for a 3-column layout, and add margin-bottom for spacing
+                  key={imgs.id}
+                  style={{ borderRadius: '3px', padding: '0px'}} // Add border radius and padding
+                >
+                  <img
+                    className="image img-fluid" // img-fluid makes the image responsive
+                    src={imgs.url}
+                    alt="ReplaceMe"
+                    data-testid="image"
+                    style={{width:'100%', height:'100%', borderRadius:'1px'}}
+                  />
+                  {/* <div data-testid="image-details" className="image-details">
+                    <div data-testid="image-tag" className="image-tag">{imgs.tag}</div>
+                    <div data-testid="image-title" className="image-title">{imgs.title}</div>
+                  </div> */}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

@@ -77,47 +77,11 @@ code {
   box-shadow: 0 0 0 10px #f2f4f5;
 }
 
-
+.row-body{
+  padding: 1px;
+}
 
 
 
 
 /* Drag and Drop CSS */
-
-/* App.css or your preferred CSS file */
-
-/* Style the container for the grid */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 100px); /* Adjust the number of columns and width as needed */
-  grid-gap: 10px; /* Adjust the gap between boxes */
-  justify-content: center;
-  align-content: center;
-  height: 300px; /* Adjust the height of the grid container */
-  transition: background-color 0.3s ease; /* Add transition for background color */
-}
-
-/* Style the draggable boxes */
-.box {
-  width: 100px; /* Adjust the width of each box */
-  height: 100px; /* Adjust the height of each box */
-  background-color: lightblue; /* Set the background color of each box */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Add transitions for transform and background color */
-}
-
-/* Change box color on hover and add a slight scale effect */
-.box:hover {
-  background-color: lightcoral; /* Change the background color on hover */
-  transform: scale(1.05); /* Scale the box slightly on hover */
-}
-
-/* Style the drag handle (optional) */
-.drag-handle {
-  /* Add your custom drag handle styles if needed */
-}
-
