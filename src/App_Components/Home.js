@@ -50,7 +50,7 @@ function Home({ loggedIn }) {
   };
 
   return (
-    <div className="container ">
+    <div>
       {loading ? (
         <div className="loading-spinner loadingSpinner">
         <RingLoader color={"#123abc"} loading={loading} size={150} />
