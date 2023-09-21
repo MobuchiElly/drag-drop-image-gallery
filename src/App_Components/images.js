@@ -76,6 +76,13 @@ const images = [
       isDragged: false,
       title: 'Food 6 Image',
     },
+    // {
+    //   id: 11,
+    //   url: process.env.PUBLIC_URL + '/item-7.jpeg',
+    //   tag: 'Food and Snacks',
+    //   isDragged: false,
+    //   title: 'Food 6 Image',
+    // },
     {
       id: 16,
       url: process.env.PUBLIC_URL + '/nature-1.jpeg',

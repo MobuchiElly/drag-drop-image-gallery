@@ -47,7 +47,7 @@ return (
                   id='password'
                   placeholder='Enter your password'
                   value={password}
-                  onChange={(e) => {console.log(password)
+                  onChange={(e) => {
                     setPassword(e.target.value)}}
                 />
               </div>

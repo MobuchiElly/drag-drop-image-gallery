@@ -1,54 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import images from './images';
-import '../index.css';
-import Skeleton from 'react-loading-skeleton';
-import { RingLoader } from 'react-spinners';
-import { auth } from './firebase';
+import React, { useEffect, useState } from "react";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import images from "./images";
+import "../index.css";
+import Skeleton from "react-loading-skeleton";
 
-function Home() {
+function Home({ loggedIn }) {
   const [galleryImage, setGalleryImage] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Add an error state
-
-  const getImages = () => {
-    try {
-      // I am simulating an asynchronous fetch
-      setTimeout(() => {
-        if (images) {
-          setGalleryImage(images);
-          setLoading(false);
-        } else {
-          setError('Error fetching the image object');
-          setLoading(false);
-        }
-      }, 1000); // Simulated delay
-    } catch (error) {
-      console.error('Error fetching images:', error);
-      setError('An error occurred while fetching images');
-      setLoading(false);
-    }
-  };
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getImages();
-  }, []);
-
-  const handleLogout = async () => {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      console.error('Logout failed', error.message);
+    // Check if the user is logged in before fetching images
+    if (!loggedIn) {
+      return;
     }
+
+    const getImages = () => {
+      try {
+        setTimeout(() => {
+          if (images) {
+            setGalleryImage(images);
+            setLoading(false);
+          } else {
+            setError("Error fetching the image object");
+            setLoading(false);
+          }
+        }, 1000);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+        setError("An error occurred while fetching images");
+        setLoading(false);
+      }
+    };
+
+    getImages();
+  }, [loggedIn]);
+
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const items = [...galleryImage];
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setGalleryImage(items);
   };
 
   return (
     <div className="container">
       {loading ? (
-        // Use Skeleton components to display placeholders during loading
         Array.from({ length: 10 }).map((_, index) => (
           <div
             data-testid="image-card"
-            className="image-card col-md-4" // Bootstrap column class for a 3-column layout
+            className="image-card col-md-4"
             key={index}
           >
             <Skeleton width={200} height={200} />
@@ -61,40 +67,57 @@ function Home() {
       ) : error ? (
         <div className="error-message">{error}</div>
       ) : (
-        <div>
-          <div className="top-card">
-            <div className="header">
-              <h1>Image Gallery</h1>
-              <p>Drag and Drop Images at will</p>
-            </div>
-            <button onClick={handleLogout} className="btn btn-danger">
-              Logout
-            </button>
-          </div>
-          <div className='row-body'>
-            <div className="row">
-              {galleryImage.map((imgs) => (
+        <div className="card">
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="image-gallery" direction="vertical">
+              {(provided) => (
                 <div
-                  data-testid="image-card"
-                  className="image-card col-md-4 d-flex flex-wrap" // Bootstrap column class for a 3-column layout, and add margin-bottom for spacing
-                  key={imgs.id}
-                  style={{ borderRadius: '3px', padding: '0px'}} // Add border radius and padding
+                  className="row"
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                  }}
                 >
-                  <img
-                    className="image img-fluid" // img-fluid makes the image responsive
-                    src={imgs.url}
-                    alt="ReplaceMe"
-                    data-testid="image"
-                    style={{width:'100%', height:'100%', borderRadius:'1px'}}
-                  />
-                  {/* <div data-testid="image-details" className="image-details">
-                    <div data-testid="image-tag" className="image-tag">{imgs.tag}</div>
-                    <div data-testid="image-title" className="image-title">{imgs.title}</div>
-                  </div> */}
+                  {galleryImage.map((imgs, index) => (
+                    <Draggable
+                      key={imgs.id.toString()}
+                      draggableId={`image-${imgs.id}`}
+                      index={index}
+                    >
+                      {(provided) => (
+                        <div
+                          data-testid="image-card"
+                          className="image-card col-md-4"
+                          style={{
+                            borderRadius: "3px",
+                            padding: "0px",
+                          }}
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <img
+                            className="image img-fluid"
+                            src={imgs.url}
+                            alt="ReplaceMe"
+                            data-testid="image"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              borderRadius: "1px",
+                            }}
+                          />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
                 </div>
-              ))}
-            </div>
-          </div>
+              )}
+            </Droppable>
+          </DragDropContext>
         </div>
       )}
     </div>

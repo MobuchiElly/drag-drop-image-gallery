@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import Home from './Home';
 import Login from './Login';
+import Search from './Search';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        // User is logged in, set loggedIn to true
         setLoggedIn(true);
       } else {
-        // User is not logged in, set loggedIn to false
         setLoggedIn(false);
       }
     });
@@ -20,17 +20,22 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  if (!loggedIn) {
-    // User is not logged in, render the Login component
-    return <Login />;
-  }
-
   return (
     <div>
-      <Home />
-    </div> 
-  )
-    
+      {loggedIn ? (
+        <div>
+          <Search query={query} setQuery={setQuery} />
+          {query ? null : <Home loggedIn={loggedIn}/>}
+        </div>
+      ) : (
+        // User is not logged in, render the Login component
+        <Login />
+      )}
+
+      {/* Conditional rendering of Home based on query */}
+      
+    </div>
+  );
 }
 
 export default App;
