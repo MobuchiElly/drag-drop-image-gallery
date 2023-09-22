@@ -7,7 +7,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [isSignUp, setIsSignUp] = useState(true); // Added state to toggle between login and sign-up forms
+  const [isSignUp, setIsSignUp] = useState(true); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
