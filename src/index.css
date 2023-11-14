@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -59,7 +60,20 @@ code {
   position: absolute;
   right: 0px;
 }
-
+.logout-btn button {
+  background: hsla(160, 12%, 95%, 0.476) !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border: none!important;
+}
+.logout-btn button:hover {
+  background: hsla(160, 12%, 95%, 0.388) !important;
+}
+.transition-size {
+  transition: font-size 1.0s ease-in-out;
+}
+.transition-size:hover {
+  font-size: 0.99rem;
+}
 .navb {
   background-color: rgba(64, 69, 58, 0.521);
   border: none !important;

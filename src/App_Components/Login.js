@@ -119,21 +119,11 @@ function Login() {
 
 export default Login;
 
-
-
 const Toggle = ({isSignUp, toggleForm}) => {
   return (
     <div>
       <p>
                 {isSignUp ? (
-                  // <div className='container-fluid d-flex flex-column justify-content-between align-items-center border p-3 mt-3'>
-                  
-                    
-                  //     <p className='m-0 text-light'>Already a user?</p>
-                  //     <button type='button' className='btn p-0 text-light' onClick={toggleForm}>
-                  //       <p className='small p-0 m-0'>Login</p>
-                  //     </button>
-                  //   </div>
 
                   <div className='container-fluid h-auto p-3 mt-3 d-flex flex-column'>
                         <p className='text-light m-0'>Already a user?</p>
