@@ -63,12 +63,12 @@ function Search({ query, setQuery }) {
 
   return (
     <div className="navb container-fluid h-100 mb-3 p-0">
-      <div className="top-card container-fluid d-flex border">
-        <div className="header border ">
+      <div className="top-card container-fluid d-flex">
+        <div className="header">
           <h1>BuchiDevs Gallery</h1>
         </div>
         <div className="logout-btn">
-          <button onClick={handleLogout} className="btn btn-danger logout-btn">
+          <button onClick={handleLogout} className="btn btn-success logout-btn">
             Logout
           </button>
         </div>
