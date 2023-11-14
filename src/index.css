@@ -52,7 +52,7 @@ code {
 
 .top-card .header{
   margin: auto;
-  
+  text-align: center;
 }
 
 .logout-btn {
