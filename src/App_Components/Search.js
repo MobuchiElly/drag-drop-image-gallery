@@ -62,9 +62,9 @@ function Search({ query, setQuery }) {
   };
 
   return (
-    <div>
-      <div className="top-card container-fluid border">
-        <div className="header">
+    <div className="navb container-fluid h-100 mb-3 p-0">
+      <div className="top-card container-fluid d-flex justify-content-between text-center border">
+        <div className="header border col-sm-11">
           <h1>BuchiDevs Gallery</h1>
         </div>
         <button onClick={handleLogout} className="btn btn-danger logout-btn">
@@ -72,7 +72,7 @@ function Search({ query, setQuery }) {
         </button>
       </div>
       <div className="input-ntext">
-        <h3>Search by Category e.g food, housing, nature </h3>
+        <h3>Categories: food, housing, nature </h3>
         <input
           type="text"
           placeholder="Search by category ..."
