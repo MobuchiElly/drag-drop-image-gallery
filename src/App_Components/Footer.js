@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
 
           <div className="col-sm-12 d-flex justify-content-center">
-            <h3>&copy; BuchiDev</h3>
+            <h3 className='text-light'>&copy; BuchiDev</h3>
           </div>
         </div>
       </div>
