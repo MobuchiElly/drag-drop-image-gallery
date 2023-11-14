@@ -7,7 +7,7 @@ import '../index.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [isSignUp, setIsSignUp] = useState(true); 
 
   const handleLogin = async (e) => {
@@ -30,26 +30,26 @@ function Login() {
     }
   };
 
-  const handleResetPassword = async () => {
-    try {
-      await sendPasswordResetEmail(auth, email);
-      setError('A password reset email has been sent. Check your email inbox.');
-    } catch (error) {
-      console.error('Password reset failed', error.message);
-      setError('Password reset failed. Please check your email address.');
-    }
-  };
+  // const handleResetPassword = async () => {
+  //   try {
+  //     await sendPasswordResetEmail(auth, email);
+  //     setError('A password reset email has been sent. Check your email inbox.');
+  //   } catch (error) {
+  //     console.error('Password reset failed', error.message);
+  //     setError('Password reset failed. Please check your email address.');
+  //   }
+  // };
 
   // Function to toggle between sign-up and login forms
   const toggleForm = () => {
     setIsSignUp(!isSignUp);
-    setError(null);
+    setError('');
   };
 
   return (
-    <div className='container-fluid vh-100 d-flex justify-content-center align-items-center border border-red'>
-          <div className='card border border-danger d-flex flex-column justify-content-center align-items-center p-4'>
-              <div className='card-title text-light text-center'>{isSignUp ? <h2 className='gradient-text'>Sign Up</h2> : <h2 className='gradient-text'>Login</h2>}</div>
+    <div className='container-fluid vh-100 d-flex justify-content-center align-items-center'>
+          <div className='card d-flex flex-column justify-content-center align-items-center p-4'>
+              <div className='card-title text-light text-center'>{isSignUp ? <h2 className='gradient-text'>Register</h2> : <h2 className='gradient-text'>Login</h2>}</div>
 
               {isSignUp ? (
                 <form onSubmit={handleSignUp}>
@@ -62,7 +62,7 @@ function Login() {
                       id='signup-email'
                       placeholder='example@mail.com'
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {setEmail(e.target.value); setError('')}}
                     />
                   </div>
                   
@@ -74,7 +74,7 @@ function Login() {
                       id='signup-password'
                       placeholder='Enter your password'
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {setPassword(e.target.value); setError('')}}
                     />
                   </div>
                   <button type='submit' className='btn w-100 btn-css btn-light'><h6 className='p-2 text-light'>Sign Up</h6></button>
@@ -90,7 +90,7 @@ function Login() {
                       id='email'
                       placeholder='example@mail.com'
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {setEmail(e.target.value); setError('')}}
                     />
                   </div>
                   <div className='mb-5'>
@@ -101,7 +101,7 @@ function Login() {
                       id='password'
                       placeholder='Enter your password'
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {; setError('')}}
                     />
                   </div>
                   
@@ -113,8 +113,6 @@ function Login() {
               {error && <p className='text-danger'>{error}</p>}
            
           </div>
-        
-      
     </div>
   );
 }
@@ -128,20 +126,27 @@ const Toggle = ({isSignUp, toggleForm}) => {
     <div>
       <p>
                 {isSignUp ? (
-                  <div className='container-fluid d-flex justify-content-between align-items-center'>
+                  // <div className='container-fluid d-flex flex-column justify-content-between align-items-center border p-3 mt-3'>
                   
-                    <div className='text-light'>
-                      <p>Already a user?</p></div>
-                      <button type='button' className='btn p-0 text-light' onClick={toggleForm}>
-                        <p>Login</p>
-                      </button>
-                    </div>
+                    
+                  //     <p className='m-0 text-light'>Already a user?</p>
+                  //     <button type='button' className='btn p-0 text-light' onClick={toggleForm}>
+                  //       <p className='small p-0 m-0'>Login</p>
+                  //     </button>
+                  //   </div>
+
+                  <div className='container-fluid h-auto p-3 mt-3 d-flex flex-column'>
+                        <p className='text-light m-0'>Already a user?</p>
+                        <button type='button' className='btn btn-link text-info p-0 m-0 transition-text' onClick={toggleForm}>
+                          <p className='m-0 small'>Login</p>
+                        </button>
+                  </div>
                   
                 ) : (
-                  <div className='contain d-flex justify-content-between align-items-center'>
-                        <p className='text-light'>Not a user?</p>
-                        <button type='button' className='btn p-0 text-light' onClick={toggleForm}>
-                          <p>Sign Up</p>
+                  <div className='container-fluid h-auto p-3 mt-3 d-flex flex-column'>
+                        <p className='text-light m-0'>Not a user?</p>
+                        <button type='button' className='btn btn-link text-info p-0 m-0 transition-text' onClick={toggleForm}>
+                          <p className='m-0 small'>Signup</p>
                         </button>
                   </div>
                 )}

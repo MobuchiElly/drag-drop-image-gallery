@@ -6,11 +6,19 @@ body {
 
   .card {  
     background-color: transparent !important;
-    /* border: none !important;  */
+    border: none !important; 
     /* height: auto; */
-    /* min-height: 70vh !important; */
+    /* min-height: 100vh !important; */
     /* width: auto; */
 }
+
+.transition-text {
+  transition: font-size 5s ease-in-out;
+}
+.transition-text:hover {
+  font-size: 1.1rem;
+}
+
 
  .gradient-text {
   background: linear-gradient(45deg, rgb(227, 55, 227), rgb(152, 152, 231), whitesmoke);
@@ -27,9 +35,9 @@ body {
     height: 50px;
     border-radius: 5px;
     color: whitesmoke !important;
-    font-size: 19px !important;
-    
+    font-size: 19px !important; 
   }
+
   .input-css::placeholder {
     color: hsla(0, 0%, 100%, 0.603) !important;
   }
