@@ -1,5 +1,4 @@
 body {
-  /* background: linear-gradient(45deg, rgb(180, 100, 100), #464d6f); */
   margin: 1px;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -45,21 +44,7 @@ code {
   background-color: #fff;
 }
 
-.top-card .logout-btn {
-  background-color: transparent; 
-}
-
-.header h1{
-  color: #f2f4f5;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(211, 18, 18, 0.3);
-  font-size: 42px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
 .top-card {
- 
   display: flex;
   height: 100%;
   justify-content: center;
@@ -81,6 +66,14 @@ code {
     right: 8px;
     top: 3px;
   } */
+}
+
+.header h1{
+  color: #f2f4f5;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(223, 101, 101, 0.326);
+  font-size: 42px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* .top-card button{

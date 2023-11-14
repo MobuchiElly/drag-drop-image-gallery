@@ -38,7 +38,6 @@ function Search({ query, setQuery }) {
   }, [query]); // Listen to changes in the query prop
 
   const handleInputChange = (e) => {
-    // Update the query using setQuery prop
     setQuery(e.target.value);
   };
 
@@ -64,9 +63,9 @@ function Search({ query, setQuery }) {
 
   return (
     <div>
-      <div className="top-card">
+      <div className="top-card container-fluid border">
         <div className="header">
-          <h1>Image Gallery</h1>
+          <h1>BuchiDevs Gallery</h1>
         </div>
         <button onClick={handleLogout} className="btn btn-danger logout-btn">
           Logout
@@ -113,7 +112,7 @@ function Search({ query, setQuery }) {
                 >
                   {(provided) => (
                     <div
-                      className="col-lg-3 col-md-4 col-sm-6 mb-1 custom-image-card"
+                      className="col-lg-3 col-md-4 col-sm-6 mb-1 p-0 custom-image-card"
                       key={index}
                       ref={provided.innerRef}
                       {...provided.draggableProps}

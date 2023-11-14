@@ -6,7 +6,7 @@ import Search from './Search';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
