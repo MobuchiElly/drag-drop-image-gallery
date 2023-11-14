@@ -1,0 +1,62 @@
+footer {
+    background-color: rgba(68, 69, 58, 0.966) !important;
+    box-shadow: 0px 0px 5px #c52943f1 !important;
+  }
+
+  /* For mobile screens */
+footer {
+    padding: 20px;
+  }
+  
+    .footer {
+      height: auto;
+    }
+
+  .social-icons a {
+    background-color: #343530f5;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+/* mobile devices  */
+  @media only screen and (max-width:575px) {
+    .social-icons a {
+      width: 8vw;
+      height: 8vw;
+      margin: 5px;
+    }
+  }
+  /* Tabs */
+  @media only screen and (min-width:575px) {
+    .social-icons a {
+      width: 7vw;
+      height: 7vw;
+      padding: 1px;
+    }
+  }
+  /* Desktop Devices */
+  @media only screen and (min-width:976px) {
+    .social-icons {
+      height: 40px;
+    }
+    .social-icons a {
+      width: 2.7vw;
+      height: 2.7vw;
+      padding: 1px;
+      margin-right: 4px;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+    .social-icons a:not(:last-child) {
+      margin-right: 4px;
+    }
+    .social-icons a:hover {
+      width: 3vw;
+      height: 3vw;
+    }
+    .social-icons a:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+  
