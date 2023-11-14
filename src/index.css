@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(45deg, rgb(180, 100, 100), #464d6f);
+  /* background: linear-gradient(45deg, rgb(180, 100, 100), #464d6f); */
   margin: 1px;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -30,7 +30,6 @@ code {
 }
 
 .input-ntext h3{
-  /* Add style for input */
   color: #9cc4d7;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-shadow: 2px 2px 4px rgba(211, 18, 18, 0.3);
@@ -47,11 +46,10 @@ code {
 }
 
 .top-card .logout-btn {
-  background-color: transparent; /* Transparent background for small screens */
+  background-color: transparent; 
 }
 
 .header h1{
-  /* add style for the h1  i.e 'Image Gallery'*/
   color: #f2f4f5;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(211, 18, 18, 0.3);
@@ -79,18 +77,18 @@ code {
   .top-card .header{
     margin-top: 30px;
   }
-  .top-card button{
+  /* .top-card button{
     right: 8px;
     top: 3px;
-  }
+  } */
 }
 
-.top-card button{
+/* .top-card button{
   position: absolute;
   right: 11px;
   top: 2px;
   border-radius: 10px;
-}
+} */
 
 .movie-grid {
   display: grid;
@@ -120,22 +118,6 @@ code {
 .image-animation:hover,
 .image-animation:focus {
   transform: scale(1.1); /* Increase the scale on hover/focus */
-}
-
-.loginForm {
-  width: 10vw;
-}
-
-.container{
-  padding-top: 16vh;
-}
-
-.container .card:hover {
-  box-shadow: 0 0 0 10px #f2f4f5;
-}
-
-.row-body{
-  padding: 1px;
 }
 
 .search-image {

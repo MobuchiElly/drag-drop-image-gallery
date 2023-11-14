@@ -1,0 +1,44 @@
+body {
+    background: url('/public/desktop-wallpaper-backgrounds-for-login-page-login-page.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: whitesmoke !important;
+} 
+
+  .card {  
+    background-color: transparent !important;
+    /* border: none !important;  */
+    /* height: auto; */
+    /* min-height: 70vh !important; */
+    /* width: auto; */
+}
+
+ .gradient-text {
+  background: linear-gradient(45deg, rgb(227, 55, 227), rgb(152, 152, 231), whitesmoke);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+  
+  /* .container .card:hover {
+    box-shadow: 0 0 3px 2px hsla(200, 6%, 28%, 0.933) !important;
+  } */
+
+  .input-css {
+    background: hsla(160, 13%, 95%, 0.257) !important;
+    height: 50px;
+    border-radius: 5px;
+    color: whitesmoke !important;
+    font-size: 19px !important;
+    
+  }
+  .input-css::placeholder {
+    color: hsla(0, 0%, 100%, 0.603) !important;
+  }
+
+  .card.input-css:focus {
+    box-shadow: 0 0 3px 10px hwb(134 5% 12% / 0.933) !important;
+  }
+
+  .btn-css {
+    background: hsla(160, 12%, 95%, 0.476) !important;
+    border-radius: 30px !important;
+  }

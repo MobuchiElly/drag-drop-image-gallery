@@ -31,8 +31,6 @@ function App() {
         // User is not logged in, render the Login component
         <Login />
       )}
-
-      {/* Conditional rendering of Home based on query */}
       
     </div>
   );

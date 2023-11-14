@@ -61,7 +61,8 @@ function Home({ loggedIn }) {
         <div className="card custom-image-card">
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="image-gallery" direction="vertical">
-              {(provided) => (
+              {(provided) => 
+              (
                 <div
                   className="row custom-image-card"
                   {...provided.droppableProps}

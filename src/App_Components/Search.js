@@ -89,7 +89,10 @@ function Search({ query, setQuery }) {
           <RingLoader color={"#123abc"} loading={loading} size={150} />
         </div>
       )}
-      {error && <p>{error}</p>}
+      {error && <div className="alert alert-warning alert-dismissible fade show">
+        <button type="button" className="btn-close" data-bs-dismiss="alert"></button>
+        <p>{error}</p>
+      </div>}
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="search-results" direction="vertical">
           {(provided) => (
