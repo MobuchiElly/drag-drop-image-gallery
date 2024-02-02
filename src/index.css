@@ -113,7 +113,12 @@ code {
   max-height: 300px;
   object-fit: cover;
 }
-
+.abserr {
+  width: 40vw;
+}
+.h30{
+  height: 30px;
+}
 /* CSS for the image animation */
 .image-animation {
   transition: transform 0.5s ease; /* Add a smooth transition effect */

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaLinkedinIn, FaGithub, FaTwitter } from 'react-icons/fa';
-import './footer.css'
+import '../styles/footer.css'
 
 const Footer = () => {
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
                 <FaGithub color="white" size={20}/>
               </a>
               
-              <a href="">
+              <a href="https://twitter.com/MobuchiEleazer">
                 <FaTwitter color="white" size={20}/>
               </a>
             </div>
