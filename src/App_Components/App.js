@@ -17,7 +17,7 @@ function App() {
         setLoggedIn(false);
       }
     });
-
+    document.body.style.background = "white"
     return () => unsubscribe();
   }, []);
 

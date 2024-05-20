@@ -3,7 +3,7 @@ import { auth } from "./firebase";
 import "../styles/login.css";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword /*sendPasswordResetEmail*/,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import "../index.css";
 
@@ -65,7 +65,7 @@ function Login() {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setError("hello");
+                  setError("");
                 }}
               />
             </div>
