@@ -13,13 +13,14 @@ function Login() {
   const [error, setError] = useState("");
   const [isSignUp, setIsSignUp] = useState(true);
 
+  const regex = /[^a-zA-Z\s]/g
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
-      console.error("Login failed", error.message);
-      setError("Invalid email or password. Please try again.");
+      setError(error.message.split(": ")[1].split("/")[1].replace(regex, " "));
     }
   };
 
@@ -28,8 +29,7 @@ function Login() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
-      console.error("Sign-up failed", error.message);
-      setError("Sign-up failed. Please try again.");
+      setError(error.message.split(": ")[1].split("/")[1].replace(regex, " "))
     }
   };
 
@@ -41,7 +41,7 @@ function Login() {
 
   return (
     <div className="container-fluid vh-100 d-flex justify-content-center align-items-center ">
-      <div className="card d-flex flex-column justify-content-center align-items-center px-2 py-4">
+      <div className="card d-flex flex-column justify-content-center align-items-center px-2 py-3">
         <div className="card-title text-light text-center">
           {isSignUp ? (
             <h2 className="gradient-text">Register</h2>
@@ -131,7 +131,7 @@ function Login() {
           <div className=" h-auto">
             {isSignUp ? (
               <div className="d-flex flex-row justify-content-center align-items-center p-1">
-                <p className="text-light h-auto py-0 px-2 ">Already a user?</p>
+                <p className="text-light h-auto py-0 px-0">Already a user?</p>
                 <p
                   type="button"
                   className="py-0 px-2 h-auto text-info cursor-pointer"
@@ -154,7 +154,7 @@ function Login() {
             )}
           </div>
           {error && (
-            <p className="text-danger position-absolute abserr text-center">
+            <p className="text-danger position-absolute abserr text-center" style={{textTransform:'capitalize'}}>
               {error}
             </p>
           )}
